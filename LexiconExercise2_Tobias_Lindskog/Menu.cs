@@ -27,7 +27,7 @@ namespace LexiconExercise2_Tobias_Lindskog
                         isAlive = false;
                         break;
                     case "1":
-                        CinemaTicketCost.MainTickedCost();
+                        CinemaTicketCost.MainTicketCost();
                         break;
                     case "2":
                         Repeat.Repeat10Times();

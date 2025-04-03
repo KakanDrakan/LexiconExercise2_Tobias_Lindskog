@@ -17,7 +17,7 @@ namespace LexiconExercise2_Tobias_Lindskog
         private const int FREE_AGE_LOW = 5;
         private const int FREE_AGE_HIGH = 100;
 
-        public static void MainTickedCost()
+        public static void MainTicketCost()
         {
             Console.WriteLine($"Do you want the cost of an individual person or for a group of peopel?{Environment.NewLine}" +
                     $"1: Cost of one ticket{Environment.NewLine}" +
@@ -27,7 +27,6 @@ namespace LexiconExercise2_Tobias_Lindskog
             bool success = false;
             do
             {
-                
                 if (int.TryParse(input, out int choice))
                 {
                     if (choice == 1)
