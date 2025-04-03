@@ -18,7 +18,7 @@ namespace LexiconExercise2_Tobias_Lindskog
         private const int FREE_AGE_LOW = 5;
         private const int FREE_AGE_HIGH = 100;
 
-        public static void MainTicketCost()
+        public static void SubMenu()
         {
             Console.WriteLine($"Do you want the cost of an individual person or for a group of peopel?{Environment.NewLine}" +
                     $"1: Cost of one ticket{Environment.NewLine}" +
@@ -80,33 +80,28 @@ namespace LexiconExercise2_Tobias_Lindskog
                 else Console.Write("Invalid input. Please type the number of people: ");
             } while (!success);
 
-            Console.WriteLine($"Total cost for those {numberOfPeople} people is {totalCost}");
+            Console.WriteLine($"Total cost for those {numberOfPeople} people is {totalCost}{Environment.NewLine}");
         }
 
         private static void IndividualTicketCost()
         {
-            bool success = false;
+            string output;
 
             Console.Write("Age: ");
             int age = AskAge();
-            
-            if (age < FREE_AGE_LOW)
-            {
-                Console.WriteLine($"Ticket is free for children under {FREE_AGE_LOW}");
-            }
-            else if (age < YOUTH_AGE_MAX)
-            {
-                Console.WriteLine($"Price for youths: {YOUTH_PRICE}kr");
-            }
-            else if (age > FREE_AGE_HIGH)
-            {
-                Console.WriteLine($"Ticket is free for people over {FREE_AGE_HIGH}");
-            }
-            else if (age > PENSIONER_AGE)
-            {
-                Console.WriteLine($"Price for pensioners: {PENSIONER_PRICE}kr");
-            }
-            else Console.WriteLine($"Standard price: {STANDARD_PRICE}kr");
+
+            if (age < FREE_AGE_LOW) output = $"Ticket is free for children under {FREE_AGE_LOW}";
+
+            else if (age < YOUTH_AGE_MAX) output = $"Price for youths: {YOUTH_PRICE}kr";
+
+            else if (age > FREE_AGE_HIGH) output = $"Ticket is free for people over {FREE_AGE_HIGH}";
+
+            else if (age > PENSIONER_AGE) output = $"Price for pensioners: {PENSIONER_PRICE}kr";
+
+            else output = $"Standard price: {STANDARD_PRICE}kr";
+                
+            Console.WriteLine(output);
+            Console.WriteLine();
       
         }
 
@@ -119,6 +114,11 @@ namespace LexiconExercise2_Tobias_Lindskog
             while (!int.TryParse(input, out age))
             {
                 Console.Write("Invalid age input. Please type age as a number: ");
+                input = Console.ReadLine();
+            }
+            while (age < 0)
+            {
+                Console.WriteLine("Age cannot be negative. Please type a positive number: ");
                 input = Console.ReadLine();
             }
             return age;

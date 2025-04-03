@@ -20,6 +20,7 @@ namespace LexiconExercise2_Tobias_Lindskog
                     $"3: Repeat the third word {Environment.NewLine}" +
                     $"4: Clear console");
                 string input = Console.ReadLine();
+                Console.WriteLine();
 
                 switch (input)
                 {
@@ -27,7 +28,7 @@ namespace LexiconExercise2_Tobias_Lindskog
                         isAlive = false;
                         break;
                     case "1":
-                        CinemaTicketCost.MainTicketCost();
+                        CinemaTicketCost.SubMenu();
                         break;
                     case "2":
                         Repeat.Repeat10Times();
