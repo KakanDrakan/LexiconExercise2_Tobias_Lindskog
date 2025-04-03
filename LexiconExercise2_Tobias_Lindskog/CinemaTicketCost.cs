@@ -87,36 +87,26 @@ namespace LexiconExercise2_Tobias_Lindskog
         {
             bool success = false;
             Console.Write("Age: ");
-            do
+            int age = AskAge();
+            
+            if (age < FREE_AGE_LOW)
             {
-                string input = Console.ReadLine();
-                if (int.TryParse(input, out int age))
-                {
-                    if (age < FREE_AGE_LOW)
-                    {
-                        Console.WriteLine($"Ticket is free for children under {FREE_AGE_LOW}");
-                    }
-                    else if (age < YOUTH_AGE_MAX)
-                    {
-                        Console.WriteLine($"Price for youths: {YOUTH_PRICE}kr");
-                    }
-                    else if (age > FREE_AGE_HIGH)
-                    {
-                        Console.WriteLine($"Ticket is free for people over {FREE_AGE_HIGH}");
-                    }
-                    else if (age > PENSIONER_AGE)
-                    {
-                        Console.WriteLine($"Price for pensioners: {PENSIONER_PRICE}kr");
-                    }
-                    else Console.WriteLine($"Standard price: {STANDARD_PRICE}kr");
-                    
-                    success = true;
-                }
-                else
-                {
-                    Console.Write("Invalid input. Please type an age with numbers: ");
-                }
-            } while (!success);
+                Console.WriteLine($"Ticket is free for children under {FREE_AGE_LOW}");
+            }
+            else if (age < YOUTH_AGE_MAX)
+            {
+                Console.WriteLine($"Price for youths: {YOUTH_PRICE}kr");
+            }
+            else if (age > FREE_AGE_HIGH)
+            {
+                Console.WriteLine($"Ticket is free for people over {FREE_AGE_HIGH}");
+            }
+            else if (age > PENSIONER_AGE)
+            {
+                Console.WriteLine($"Price for pensioners: {PENSIONER_PRICE}kr");
+            }
+            else Console.WriteLine($"Standard price: {STANDARD_PRICE}kr");
+      
         }
 
         private static int AskAge(string respondent = "")
