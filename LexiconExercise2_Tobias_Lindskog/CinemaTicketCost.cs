@@ -9,6 +9,7 @@ namespace LexiconExercise2_Tobias_Lindskog
 {
     public static class CinemaTicketCost
     {
+        //Idk could be useful to have
         private const int YOUTH_AGE_MAX = 20;
         private const int YOUTH_PRICE = 80;
         private const int PENSIONER_AGE = 64;
@@ -64,10 +65,10 @@ namespace LexiconExercise2_Tobias_Lindskog
                     }
                     else
                     {
-                        for (int i = 0; i < numberOfPeople; i++)
+                        for (int i = 0; i < numberOfPeople; i++)                        //checking each person if free, then youth, then old and adding price to total
                         {
                             int age = AskAge($"Person {i+1}");
-                            if (age < FREE_AGE_LOW || age > FREE_AGE_HIGH) continue;
+                            if (age < FREE_AGE_LOW || age > FREE_AGE_HIGH) continue; 
                             else if (age < YOUTH_AGE_MAX) totalCost += YOUTH_PRICE;
                             else if (age > PENSIONER_AGE) totalCost += PENSIONER_PRICE;
                             else totalCost += STANDARD_PRICE;
@@ -85,6 +86,7 @@ namespace LexiconExercise2_Tobias_Lindskog
         private static void IndividualTicketCost()
         {
             bool success = false;
+
             Console.Write("Age: ");
             int age = AskAge();
             

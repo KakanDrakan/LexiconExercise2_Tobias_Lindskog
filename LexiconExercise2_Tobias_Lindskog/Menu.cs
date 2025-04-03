@@ -38,6 +38,9 @@ namespace LexiconExercise2_Tobias_Lindskog
                     case "4":
                         Console.Clear();
                         break;
+                    default:
+                        Console.WriteLine("Invalid input, try again");
+                        break;
 
 
                 }
