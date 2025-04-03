@@ -17,7 +17,8 @@ namespace LexiconExercise2_Tobias_Lindskog
                 Console.WriteLine($"0. Quit application {Environment.NewLine}" +
                     $"1. Cinema ticket price {Environment.NewLine}" +
                     $"2: Repeat 10 times {Environment.NewLine}" +
-                    $"3: Repeat the third word");
+                    $"3: Repeat the third word {Environment.NewLine}" +
+                    $"4: Clear console");
                 string input = Console.ReadLine();
 
                 switch (input)
@@ -27,6 +28,15 @@ namespace LexiconExercise2_Tobias_Lindskog
                         break;
                     case "1":
                         CinemaTicketCost.MainTickedCost();
+                        break;
+                    case "2":
+                        Repeat.Repeat10Times();
+                        break;
+                    case "3":
+                        Repeat.RepeatThirdWord();
+                        break;
+                    case "4":
+                        Console.Clear();
                         break;
 
 

@@ -14,6 +14,8 @@ namespace LexiconExercise2_Tobias_Lindskog
         private const int PENSIONER_AGE = 64;
         private const int PENSIONER_PRICE = 90;
         private const int STANDARD_PRICE = 120;
+        private const int FREE_AGE_LOW = 5;
+        private const int FREE_AGE_HIGH = 100;
 
         public static void MainTickedCost()
         {
@@ -65,8 +67,9 @@ namespace LexiconExercise2_Tobias_Lindskog
                     {
                         for (int i = 0; i < numberOfPeople; i++)
                         {
-                            int age = AskAge($"Person {i}");
-                            if (age < YOUTH_AGE_MAX) totalCost += YOUTH_PRICE;
+                            int age = AskAge($"Person {i+1}");
+                            if (age < FREE_AGE_LOW || age > FREE_AGE_HIGH) continue;
+                            else if (age < YOUTH_AGE_MAX) totalCost += YOUTH_PRICE;
                             else if (age > PENSIONER_AGE) totalCost += PENSIONER_PRICE;
                             else totalCost += STANDARD_PRICE;
                         }
@@ -89,9 +92,17 @@ namespace LexiconExercise2_Tobias_Lindskog
                 string input = Console.ReadLine();
                 if (int.TryParse(input, out int age))
                 {
-                    if (age < YOUTH_AGE_MAX)
+                    if (age < FREE_AGE_LOW)
+                    {
+                        Console.WriteLine($"Ticket is free for children under {FREE_AGE_LOW}");
+                    }
+                    else if (age < YOUTH_AGE_MAX)
                     {
                         Console.WriteLine($"Price for youths: {YOUTH_PRICE}kr");
+                    }
+                    else if (age > FREE_AGE_HIGH)
+                    {
+                        Console.WriteLine($"Ticket is free for people over {FREE_AGE_HIGH}");
                     }
                     else if (age > PENSIONER_AGE)
                     {
