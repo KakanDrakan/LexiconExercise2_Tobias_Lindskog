@@ -26,24 +26,17 @@ namespace LexiconExercise2_Tobias_Lindskog
             Console.Write("Type a sentence with at least three words: ");
             do
             {
-                string[] inputs = Console.ReadLine().Split(' ');
-                int wordCount = 0;
-                foreach (string word in inputs)
+                string[] inputs = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                
+                if(inputs.Length>2) 
                 {
-                    if (word != "")
-                    {
-                        wordCount++;
-                        if (wordCount == 3)
-                        {
-                            Console.WriteLine(word);
-                            success = true;
-                        }
-                    }
+                    Console.WriteLine(inputs[2]);
+                    Console.WriteLine();
+                    success = true; 
                 }
-                if (!success) Console.WriteLine("You need to type a sentence with at least three words");
+                else Console.WriteLine("You need to type a sentence with at least three words");
 
             } while (!success);
-               
         }
     }
 }
